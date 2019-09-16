@@ -20,7 +20,7 @@ public class Connection {
         String conex = "";
 
         driver  = "com.mysql.jdbc.Driver";
-        conex = "jdbc:mysql://"+"localhost"+":"+"3306"+"/"+"reto";
+        conex = "jdbc:mysql://"+"35.202.219.204"+":"+"3306"+"/"+"reto";
         
         /*conex = String.format(
         	    "jdbc:mysql://google/%s?cloudSqlInstance=%s"
