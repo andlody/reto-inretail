@@ -12,6 +12,8 @@ import com.andree.formulas.Mates;
 import com.andree.model.Cliente;
 import com.andree.model.ClienteRespuesta;
 import com.andree.model.Promedios;
+import com.andree.repositorio.Connection;
+import com.andree.repositorio.MiBd;
 import com.andree.repositorio.MiRepo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,14 +25,17 @@ public class ClienteController {
 	@RequestMapping(method = RequestMethod.POST, value = "/api/crearcliente")
     @ApiOperation(value = "Crear cliente", notes = "Crear nuevo cliente")
 	public String crearcliente(@RequestBody Cliente cliente) {		 
-		 return MiRepo.guardarDatos(cliente);
+		 //return MiRepo.guardarDatos(cliente);
+		 return  MiBd.guardarDatos(cliente);
+			
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/api/kpideclientes")
 	@ApiOperation(value = "Promedios de clientes", notes = "Muestra el promedio de edad de todos los clientes y la desviacion estandar")
 	public ResponseEntity<Promedios> kpideclientes() {
 		
-		ArrayList<Cliente> clientes = MiRepo.leerDatos();
+		//ArrayList<Cliente> clientes = MiRepo.leerDatos();
+		ArrayList<Cliente> clientes = MiBd.leerDatos();
 		
 		ArrayList<Integer> edades = new ArrayList<Integer>();
 		for(int i=0;i<clientes.size();i++) {
@@ -46,7 +51,8 @@ public class ClienteController {
 	@RequestMapping(method = RequestMethod.GET, value = "/api/listclientes")
 	@ApiOperation(value = "Lista de clientes", notes = "Lista de todos los clientes con la fecha probable de su muerte")
 	public ResponseEntity<ArrayList<ClienteRespuesta>>  listclientes() {
-		ArrayList<Cliente> clientes = MiRepo.leerDatos();
+		//ArrayList<Cliente> clientes = MiRepo.leerDatos();
+		ArrayList<Cliente> clientes = MiBd.leerDatos();
 		ArrayList<ClienteRespuesta> clientesRespuesta = new ArrayList<ClienteRespuesta>();
 		
 		for(int i=0;i<clientes.size();i++) {
@@ -67,6 +73,7 @@ public class ClienteController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/api/eliminarclientes")
 	@ApiOperation(value = "Eliminar clientes", notes = "Elimina todos los clientes guardados.")
 	public String eliminarclientes() {
-		return MiRepo.eliminarDatos();
+		//return MiRepo.eliminarDatos();
+		return MiBd.eliminarDatos();
 	}	
 }
