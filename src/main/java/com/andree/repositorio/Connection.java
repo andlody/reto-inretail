@@ -20,14 +20,14 @@ public class Connection {
         String conex = "";
 
         driver  = "com.mysql.jdbc.Driver";
-        //conex = "jdbc:mysql://"+"localhost"+":"+"3306"+"/"+"reto";
+        conex = "jdbc:mysql://"+"35.202.219.204"+":"+"3306"+"/"+"reto";
         
-        conex = String.format(
+        /*conex = String.format(
         	    "jdbc:mysql://google/%s?cloudSqlInstance=%s"
         	        + "&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false",
         	    "reto",
         	    "prueba-de-proyecto-250723:us-central1:reto");
-
+	   */
         	//Connection connection = DriverManager.getConnection(conex, "", password);
         
         try {

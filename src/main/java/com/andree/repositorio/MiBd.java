@@ -17,9 +17,9 @@ public class MiBd {
 	public static ArrayList<Cliente> leerDatos() {
 		String[][] aa = Connection.query("SELECT nombre, apellido, edad, fecha FROM cliente", new String[0]);
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
-		
-		Cliente cliente = new Cliente();
+				
 		for(int i=0;i<aa.length;i++) {
+			Cliente cliente = new Cliente();
 			cliente.setNombre(aa[i][0]);
 			cliente.setApellido(aa[i][1]);
 			try {
