@@ -20,14 +20,22 @@ public class Connection {
         String conex = "";
 
         driver  = "com.mysql.jdbc.Driver";
-        conex = "jdbc:mysql://"+"localhost"+":"+"3306"+"/"+"reto";
+        //conex = "jdbc:mysql://"+"localhost"+":"+"3306"+"/"+"reto";
+        
+        conex = String.format(
+        	    "jdbc:mysql://google/%s?cloudSqlInstance=%s"
+        	        + "&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false",
+        	    "reto",
+        	    "prueba-de-proyecto-250723:us-central1:reto");
+
+        	//Connection connection = DriverManager.getConnection(conex, "", password);
         
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException e) {}
         
         try {            
-            Connection.con = DriverManager.getConnection(conex,"root","");
+            Connection.con = DriverManager.getConnection(conex,"root","ICzbdmEzJiKmIriq");
         } catch (SQLException e) {System.out.println(e.getMessage());}  
         
         try {
